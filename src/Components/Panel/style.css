@@ -1,0 +1,17 @@
+.content-box {
+    padding: 2vh;
+}
+
+.loader-wrapper {
+    text-align: center;
+    padding: 5vh;
+}
+
+.loader-wrapper div {
+    display: inline-block;
+}
+
+.section-title {
+    font-size: 3vh;
+    font-weight: 500;
+}

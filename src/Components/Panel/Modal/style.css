@@ -1,0 +1,16 @@
+.collection-modal-title {
+    font-size: 4vh;
+    font-weight: 500;
+    color: #457b9d;
+}
+
+.modal-success {
+    text-align: center;
+}
+
+.modal-success-title {
+    text-align: center;
+    font-size: 4vh;
+    color: #2a9d8f;
+    margin-bottom: 2vh;
+}

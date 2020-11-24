@@ -1,0 +1,33 @@
+.collection-panel {
+    display: grid;
+	grid-template-columns: 33.3% 33.3% 33.3%;
+	grid-gap: 0.5em;
+}
+
+.collection-panel-title {
+    font-size: 3vh;
+    font-weight: 500;
+    margin-bottom: 2vh;
+}
+
+.card {
+    height: max-content;
+}
+
+.collection-card-title {
+    font-size: 3vh;
+    display: inline-block;
+    margin-bottom: 2vh;
+}
+
+.collection-card {
+    height: 30vh;
+    padding: 2vh;
+    position: relative;
+}
+
+.like-panel {
+    position: absolute;
+    bottom: 2vh;
+    left: 2vh;
+}

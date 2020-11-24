@@ -1,0 +1,51 @@
+.collection-details-panel {
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 2vh;
+}
+
+.collection-details-title {
+    font-size: 6vh;
+    font-weight: 500;
+    margin-bottom: 3vh;
+    display: inline-block;
+}
+
+.collection-details-description {
+    font-size: 4vh;
+    font-weight: 400;
+}
+
+.icon-panel-wrapper {
+    display: flex;           /* establish flex container */
+    flex-direction: row;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+}
+
+.collection-modal-title {
+    font-size: 4vh;
+    font-weight: 500;
+    color: #457b9d;
+}
+
+.modal-success {
+    text-align: center;
+}
+
+.modal-success-title {
+    text-align: center;
+    font-size: 4vh;
+    color: #2a9d8f;
+    margin-bottom: 2vh;
+}
+
+/* Loading */
+.loader-wrapper {
+    text-align: center;
+    padding: 5vh;
+}
+
+.loader-wrapper div {
+    display: inline-block;
+}

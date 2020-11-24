@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;800&display=swap');
+
+body, html {
+    font-family: 'Raleway', sans-serif;
+}
+
+/* General unviversial styling*/
+.blue-underlined {
+    padding-bottom: 2vh;
+    border-bottom: 4px solid #457b9d;
+}
+
+.blue-label {
+    color: #457B9D;
+    font-weight: 400;
+    font-size: 3vh;
+}
+
+.blue-button {
+    color: white;
+    background: #457b9d;
+    border-radius: 4vh;
+}
+
+.round-input {
+    border-radius: 4vh;
+}
+
+.form-error-message {
+    color: #e63946;
+    font-size: 2vh;
+}
+
+.green-icon {
+    color: #2A9D8F;
+}
+
+.red-icon {
+    color: #e63946;
+}
+
+/* Slider */
+
+.slick-prev {
+    left: 3% !important;
+    z-index: 1;
+}
+
+.slick-next {
+    right: 3% !important;
+    z-index: 1;
+}
+
+.slick-slide {
+    margin-left: 20px;
+}
+
+/* Progress bar */
+.progress::-webkit-progress-value {
+    transition: width 0.1s ease-in-out;
+}
+
+/* Links color */
+.green-link {
+    color: #2A9D8F;
+}

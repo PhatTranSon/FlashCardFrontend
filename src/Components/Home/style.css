@@ -1,0 +1,76 @@
+#intro {
+    height: 100vh;
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center; 
+    text-align: center;
+    color: white;
+    background: #457B9D;
+}
+
+#intro h1 {
+    font-size: 10vh;
+}
+
+#intro p {
+    font-size: 5vh;
+}
+
+#intro a {
+    width: 20vh;
+}
+
+#flashcards {
+    height: 100vh;
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center; 
+    color: #457B9D;
+    background: #F1FAEE;
+}
+
+#flashcards h1 {
+    font-size: 5vh;
+}
+
+#flashcards h2 {
+    font-size: 3vh;
+    color: rgba(69, 123, 157, 0.5);
+    margin-bottom: 10vh;
+}
+
+#collections {
+    height: 100vh;
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center; 
+    color: #457B9D;
+}
+
+#collections h1 {
+    font-size: 5vh;
+}
+
+#collections h2 {
+    font-size: 3vh;
+    color: rgba(69, 123, 157, 0.5);
+    margin-bottom: 10vh;
+}
+
+/* Scrolling behaviors */
+.home {
+    overflow: scroll;
+    height: 100vh;
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-type: y mandatory;
+}
+
+.home-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+}

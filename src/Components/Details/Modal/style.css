@@ -1,0 +1,96 @@
+.collection-modal-title {
+    font-size: 4vh;
+    font-weight: 500;
+    color: #457b9d;
+}
+
+.modal-success {
+    text-align: center;
+}
+
+.modal-success-title {
+    text-align: center;
+    font-size: 4vh;
+    color: #2a9d8f;
+    margin-bottom: 2vh;
+}
+
+/* Styling for start */
+.start-screen {
+    text-align: center;
+}
+
+.start-screen * {
+    margin-bottom: 2vh;
+}
+
+.start-screen h1 {
+    font-size: 7vh;
+}
+
+.start-screen p {
+    font-size: 5vh;
+}
+
+/* Styling for result */
+.result-screen {
+    text-align: center;
+}
+
+.result-screen * {
+    margin-bottom: 2vh;
+}
+
+.result-screen h1 {
+    font-size: 5vh;
+}
+
+.result-screen p {
+    font-size: 10vh;
+}
+
+/* Styling for question */
+.question-screen {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.question-screen * {
+    margin-bottom: 2vh;
+}
+
+.question-screen h1 {
+    font-size: 6vh;
+    font-weight: 500;
+}
+
+.question-screen p {
+    font-size: 4vh;
+}
+
+.question-screen progress {
+    position: absolute;
+    bottom: 0;
+}
+
+.question-screen input {
+    width: 50%;
+}
+
+/* Loader */
+.loader-wrapper {
+    text-align: center;
+    padding: 5vh;
+}
+
+.loader-wrapper div {
+    display: inline-block;
+}
+
+/* Modify tab parent */
+.tab-parent {
+    width: 100%;
+    margin-top: 5vh;
+}

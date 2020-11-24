@@ -1,0 +1,58 @@
+.authentication-panel {
+    min-height: 100vh;
+}
+
+/*Left panel*/
+#authentication-left-panel {
+    background-color: #457B9D;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#authentication-left-panel > div {
+    width: 80%;
+}
+
+#authentication-left-panel > div > h1 {
+    color: white;
+    font-size: 5vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+/*Right panel*/
+#authentication-right-panel {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#right-panel-title {
+    font-size: 5vh;
+    margin-bottom: 4vh;
+}
+
+.authentication-field {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+#signup-prompt {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    text-align: center;
+    font-size: 2vh;
+}
+
+#signup-prompt > a {
+    color: #457B9D !important;
+}
