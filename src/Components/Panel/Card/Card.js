@@ -29,6 +29,10 @@ class Card extends React.Component {
         this.props.onDelete(id);
     }
 
+    onEdit(id) {
+        this.props.onEdit(id);
+    }
+
     speak() {
         //Get the word
         const { title } = this.props;
@@ -40,7 +44,17 @@ class Card extends React.Component {
 
     render() {
         //Get the data
-        const { id, title, phonetic, description, liked, likes, color, showDelete } = this.props;
+        const { 
+            id, 
+            title, 
+            phonetic, 
+            description, 
+            liked, 
+            likes, 
+            color, 
+            showDelete,
+            showEdit
+        } = this.props;
 
         return (
             <div 
@@ -58,10 +72,12 @@ class Card extends React.Component {
 
                     <Like 
                         showDelete={showDelete}
+                        showEdit={showEdit}
                         likes={likes}
                         liked={liked}
                         onDelete={() => this.onDelete(id)}
-                        onLike={() => this.onLike(id)}/>
+                        onLike={() => this.onLike(id)}
+                        onEdit={() => this.onEdit(id)}/>
             </div>
         )
     }

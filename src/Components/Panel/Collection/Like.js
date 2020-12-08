@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { 
     faTrash,
-    faHeart
+    faHeart,
+    faEdit
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -27,6 +28,11 @@ class Like extends React.Component {
         this.props.onDelete();
     }
 
+    onEditClicked(e) {
+        e.stopPropagation();
+        this.props.onEdit();
+    }
+
     onLikeClicked(e) {
         e.stopPropagation();
         //Call passed method
@@ -35,7 +41,7 @@ class Like extends React.Component {
 
     render() {
         //Display if show delete button or not
-        const { showDelete, liked, likes } = this.props;
+        const { showDelete, showEdit, liked, likes } = this.props;
         const inverted = this.props.inverted || false;
 
         //Render 
@@ -49,6 +55,15 @@ class Like extends React.Component {
                         className="green-icon"
                         style={{ marginRight: "2vh"}}
                         onClick={(e) => this.onDeleteClicked(e)}/> 
+                    : null
+                }
+                {
+                    showEdit ?
+                    <FontAwesomeIcon 
+                        icon={faEdit} 
+                        className="yellow-icon"
+                        style={{ marginRight: "2vh"}}
+                        onClick={(e) => this.onEditClicked(e)}/> 
                     : null
                 }
                 {

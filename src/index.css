@@ -39,6 +39,10 @@ body, html {
     color: #e63946;
 }
 
+.yellow-icon {
+    color: #e9c46a;
+}
+
 /* Slider */
 
 .slick-prev {

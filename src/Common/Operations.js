@@ -166,6 +166,10 @@ function unlikeCard(id) {
     return makeRequest('/cards/unlikes', { cardId: id }, 'post', true);
 }
 
+function updateCard(id, title, description, phonetic, color) {
+    return makeRequest('/cards', { id, title, description, phonetic, color }, 'put', true);
+}
+
 //Get all scores
 function getAllScores() {
     return axios({
@@ -213,6 +217,7 @@ export {
     getLikedCards,
     createCard,
     likeCard,
+    updateCard,
     unlikeCard,
     deleteCard,
 

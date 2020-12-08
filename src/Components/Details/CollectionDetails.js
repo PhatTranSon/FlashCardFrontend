@@ -15,6 +15,7 @@ import {
     getOneCollection,
     getCardsFromCollection,
     createCard,
+    updateCard,
     likeCard,
     unlikeCard,
     deleteCard,
@@ -41,6 +42,7 @@ import {
 } from '../../Common/Operations';
 import CardModal from './Modal/AddCardPanel';
 import TestModal from './Modal/TestModal';
+import UpdateCardModal from './Modal/UpdateCardModal';
 import TabParent from '../Panel/Tab/TabParent';
 import TabChild from '../Panel/Tab/TabChild';
 import CollectionResultTable from './Table/CollectionResultTable';
@@ -88,6 +90,16 @@ class CollectionDetails extends React.Component {
             testModalToggle: 0,
             testModalSubmitting: false,
 
+            //Update card modal open or not
+            cardUpdateModalOpen: false,
+            cardUpdateModalSuccess: false,
+            cardUpdateModalError: false,
+            cardUpdateModalMessage: false,
+
+            //Data for update card
+            updateCardId: null,
+            updateCardIndex: null,
+
             //Scores
             scores: [],
             scoresLoading: false
@@ -100,13 +112,16 @@ class CollectionDetails extends React.Component {
         this.onAdd = this.onAdd.bind(this);
         this.onEdit = this.onEdit.bind(this);
         this.onTest = this.onTest.bind(this);
+        this.onEditCard = this.onEditCard.bind(this);
         this.updateCollection = this.updateCollection.bind(this);
         this.closeUpdateModal = this.closeUpdateModal.bind(this);
         this.closeCardModal = this.closeCardModal.bind(this);
         this.closeTestModal = this.closeTestModal.bind(this);
+        this.closeCardUpdateModal = this.closeCardUpdateModal.bind(this);
         this.createCard = this.createCard.bind(this);
         this.likeCard = this.likeCard.bind(this);
         this.deleteCard = this.deleteCard.bind(this);
+        this.editCard = this.editCard.bind(this);
     }
 
     componentDidMount() {
@@ -236,6 +251,15 @@ class CollectionDetails extends React.Component {
         });
     }
 
+    onEditCard(id, index) {
+        //Open modal
+        this.setState({
+            updateCardId: id,
+            updateCardIndex: index,
+            cardUpdateModalOpen: true
+        });
+    }
+
     //Method to update collection
     updateCollection(data) {
         //Get the id
@@ -358,6 +382,38 @@ class CollectionDetails extends React.Component {
             });
     }
 
+    closeCardUpdateModal() {
+        this.setState({
+            cardUpdateModalOpen: false
+        });
+    }
+
+    editCard(id, title, description, phonetic, color) {
+        //Make request
+        updateCard(id, title, description, phonetic, color)
+            .then(response => {
+                //Update card
+                const card = response.data;
+                const { updateCardIndex, cards } = this.state;
+
+                //Set 
+                cards[updateCardIndex] = {...card, ...cards[updateCardIndex]}
+
+                //Set state
+                this.setState({
+                    cards,
+                    cardUpdateModalSuccess: true
+                });
+            })
+            .catch(error => {
+                const { message } = error.response.data;
+                this.setState({
+                    cardUpdateModalError: true,
+                    cardUpdateModalMessage: message
+                });
+            });
+    }
+
     //Method to delete and like cards
     deleteCard(id, index) {
         //Get cards
@@ -431,12 +487,15 @@ class CollectionDetails extends React.Component {
             back,
             updateModalOpen, updateModalSuccess, updateModalError, updateModalMessage,
             cardModalOpen, cardModalSuccess, cardModalError, cardModalMessage,
+            cardUpdateModalOpen, cardUpdateModalSuccess, cardUpdateModalError, cardUpdateModalMessage,
+            updateCardId, updateCardIndex,
             testModalOpen, testModalToggle, testModalSubmitting,
             scores, scoresLoading
         } = this.state;
 
-        //Test log
-        console.log(cardModalSuccess);
+
+        //Get the update card target if exists
+        const updateCard = updateCardIndex !== null ? cards[updateCardIndex] : null
 
         //Check if user is owner
         const owner = userId == getUserId();
@@ -500,8 +559,10 @@ class CollectionDetails extends React.Component {
                                             <FlashCards 
                                                 cards={cards}
                                                 showDelete={owner}
+                                                showEdit={owner}
                                                 onDeleteCard={this.deleteCard}
-                                                onLikeCard={this.likeCard}/> :
+                                                onLikeCard={this.likeCard}
+                                                onEditCard={this.onEditCard}/> :
                                             <Empty title="This collection have no cards"/>
                                         )
                                     }
@@ -552,6 +613,18 @@ class CollectionDetails extends React.Component {
                                     errorMessage={cardModalMessage}
                                     onCreateCard={this.createCard}
                                     onSuccessButtonClicked={this.closeCardModal}/> :
+                                null
+                            }
+                            {
+                                owner ?
+                                <UpdateCardModal
+                                    isOpen={cardUpdateModalOpen}
+                                    success={cardUpdateModalSuccess}
+                                    error={cardUpdateModalError}
+                                    errorMessage={cardUpdateModalMessage}
+                                    {...updateCard}
+                                    onEditCard={this.editCard}
+                                    onSuccessButtonClicked={this.closeCardUpdateModal}/> :
                                 null
                             }
                             <TestModal 
