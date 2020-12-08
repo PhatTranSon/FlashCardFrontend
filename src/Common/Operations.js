@@ -188,7 +188,6 @@ function submitScore(collectionId, rightQuestions, totalQuestions) {
 
 //Get score from specific collection
 function getCollectionScores(id) {
-    console.log(id);
     return axios({
         method: 'GET',
         url: `/tests/${id}`,

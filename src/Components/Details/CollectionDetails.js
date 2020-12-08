@@ -384,6 +384,9 @@ class CollectionDetails extends React.Component {
 
     closeCardUpdateModal() {
         this.setState({
+            cardUpdateModalSuccess: false,
+            cardUpdateModalError: false,
+            cardUpdateModalMessage: false,
             cardUpdateModalOpen: false
         });
     }
@@ -397,7 +400,10 @@ class CollectionDetails extends React.Component {
                 const { updateCardIndex, cards } = this.state;
 
                 //Set 
-                cards[updateCardIndex] = {...card, ...cards[updateCardIndex]}
+                cards[updateCardIndex].title = card.title;
+                cards[updateCardIndex].color = card.color;
+                cards[updateCardIndex].phonetic = card.phonetic;
+                cards[updateCardIndex].description = card.description;
 
                 //Set state
                 this.setState({

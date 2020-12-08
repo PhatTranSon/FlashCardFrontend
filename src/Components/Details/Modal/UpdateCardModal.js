@@ -13,6 +13,8 @@ class UpdateCardModal extends React.Component {
         super(props);
 
         this.state = {
+            title: null,
+            phonetic: null,
             loading: false,
             error: false, 
             errorMessage: null
@@ -121,10 +123,13 @@ class UpdateCardModal extends React.Component {
 
     render() {
         //Get the props
-        const { isOpen, error, success, errorMessage, title, description, color, phonetic } = this.props;
+        const { isOpen, error, success, errorMessage, description, color } = this.props;
         const { loading } = this.state;
 
+        const titleValue = this.state.title || this.props.title;
+
         //Get the internally generated error
+        const phoneticValue = this.state.phonetic || this.props.phonetic;
         const phoneticError = this.state.error;
         const phoneticErrorMessage = this.state.errorMessage;
 
@@ -189,7 +194,8 @@ class UpdateCardModal extends React.Component {
                                             className="input round-input" 
                                             type="text" 
                                             placeholder="Choose word"
-                                            defaultValue={title}/>
+                                            value={titleValue}
+                                            onChange={this.onTitleChange}/>
                                     </div>
                                 </div>
 
@@ -199,7 +205,8 @@ class UpdateCardModal extends React.Component {
                                             className="input round-input" 
                                             type="text" 
                                             placeholder="Generate phonetic" 
-                                            defaultValue={phonetic}/>
+                                            value={phoneticValue}
+                                            onChange={this.onPhoneticChange}/>
                                     </div>
                                     <p className="control">
                                         <a 
